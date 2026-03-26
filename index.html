@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Currency Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-bg"></div>
+  <div id="threeContainer">
+    <canvas id="globeCanvas"></canvas>
+    <div id="globeHint">3D globe background enabled</div>
+  </div>
+
+  <div id="splash" class="splash-screen">
+    <div class="splash-logo">
+      <span class="splash-logo-text">💱</span>
+      <span class="splash-logo-title">Currency Converter</span>
+    </div>
+    <p>Loading, please wait...</p>
+  </div>
+
+  <div class="app" id="app">
+    <header class="header">
+      <h1>World Currency Converter</h1>
+      <button id="themeBtn" class="theme-btn" aria-label="Toggle dark/light mode">🌗</button>
+    </header>
+
+    <section class="converter card glass">
+      <div class="row">
+        <div class="field">
+          <label>Amount</label>
+          <input type="number" id="amountInput" min="0" value="1" />
+        </div>
+
+        <div class="field">
+          <label>From Currency
+            <span title="ISO code of source currency">ℹ️</span>
+          </label>
+          <select id="fromSelect"></select>
+        </div>
+
+        <div class="swap-wrap">
+          <button id="swapBtn" class="swap-btn" aria-label="Swap currencies">
+            ↔
+          </button>
+        </div>
+
+        <div class="field">
+          <label>To Currency
+            <span title="ISO code of target currency">ℹ️</span>
+          </label>
+          <select id="toSelect"></select>
+        </div>
+      </div>
+
+      <div class="flags row">
+        <div class="country-info">
+          <img id="fromFlag" src="" alt="From Flag" loading="lazy" />
+          <div>
+            <p id="fromCountry">From: -</p>
+            <p id="fromCurr">Currency: -</p>
+          </div>
+        </div>
+        <div class="country-info">
+          <img id="toFlag" src="" alt="To Flag" loading="lazy" />
+          <div>
+            <p id="toCountry">To: -</p>
+            <p id="toCurr">Currency: -</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="output" class="output glass">
+        <p class="result-text">Result:</p>
+        <p id="resultValue" class="result-value">-</p>
+      </div>
+
+      <div id="loading" class="loading hidden">Fetching live rates...</div>
+    </section>
+
+    <section class="history card glass">
+      <h2>Recent Conversions</h2>
+      <ul id="historyList"></ul>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js" integrity="sha512-IQ1z6Ky6fr3b8FmL7NuvOSH0as4XyO97xgO26bmtF7VPLr8V7y/ql0XR6uN4qGl+FqHWVxHT1wj7bJhVCOXNTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+</html>
